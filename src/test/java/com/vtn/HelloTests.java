@@ -1,14 +1,12 @@
 package com.vtn;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class HelloTests {
+class HelloTests {
 
     private WebDriver driver;
 
@@ -33,7 +31,8 @@ public class HelloTests {
     }
 
     @Test
-    public void openGoogle(){
+    void openGoogle() {
         driver.get("https://google.com");
+        Assertions.assertEquals(1, driver.findElements(By.cssSelector("input[name=q]")).size());
     }
 }
