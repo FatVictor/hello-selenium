@@ -2,7 +2,6 @@ package com.vtn;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -32,7 +31,8 @@ class HelloTests {
 
     @Test
     void openGoogle() {
-        driver.get("https://google.com");
-        Assertions.assertEquals(1, driver.findElements(By.cssSelector("input[name=q]")).size());
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/");
+        String title = driver.getTitle();
+        Assertions.assertEquals("Hands-On Selenium WebDriver with Java", title);
     }
 }
